@@ -88,6 +88,7 @@
             /* Distinct light grey, different from theme */
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            flex-wrap: wrap;
         }
 
         header img {
@@ -96,22 +97,41 @@
         }
 
         .nav-links {
-            display: none;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .nav-links a {
+            color: #000;
+            font-weight: 700;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            padding: 6px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            text-align: center;
         }
 
         @media (min-width: 900px) {
+            header {
+                flex-wrap: nowrap;
+            }
+
             .nav-links {
-                display: flex;
+                width: auto;
+                margin-top: 0;
+                justify-content: flex-end;
                 gap: 15px;
             }
 
             .nav-links a {
-                color: #000;
-                font-weight: 700;
                 font-size: 0.8rem;
-                text-transform: uppercase;
                 padding: 10px 20px;
-                border-radius: 8px;
+                background: transparent;
             }
 
             .nav-links a:hover {
@@ -521,9 +541,60 @@
         }
 
         @media (max-width: 900px) {
+            .hero {
+                padding-top: 25vh;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+                line-height: 1.1;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .section-header {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .feature-block {
+                padding: 2rem 5%;
+                gap: 2.5rem;
+            }
+
+            .feature-text h3 {
+                font-size: 1.5rem;
+            }
+
+            #apropos {
+                padding: 4rem 5%;
+            }
+
+            #apropos h2 {
+                font-size: 2rem;
+            }
+
+            .contact-link {
+                font-size: 1.2rem;
+            }
+
             .dashboard-mockup {
                 flex-direction: column;
                 height: auto;
+                min-width: 0;
+            }
+
+            .db-content {
+                min-width: 0;
+                overflow-x: auto;
+                padding: 15px;
             }
 
             .db-sidebar {
@@ -590,7 +661,7 @@
     <!-- Feature 2: Right Text, Left Visual (Reversed) -->
     <section class="feature-block reverse">
         <div class="feature-text reveal reveal-right">
-            <h3>COMMANDES • STOCKS • FINANCES</h3>
+            <h3>COMMANDES • FINANCES</h3>
             <p>Obtenez une vision précise et automatisée de votre rentabilité :</p>
             <ul class="feature-list">
                 <li>Analyse</li>
