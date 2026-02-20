@@ -85,47 +85,65 @@
             top: 0;
             z-index: 1000;
             background: #e2e8f0;
-            /* Distinct light grey, different from theme */
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            /* Force on one line */
+            overflow-x: auto;
+            /* allow scroll if desperately tight */
         }
 
         header img {
-            height: 65px;
+            height: 40px;
+            /* Smaller default for mobile */
             object-fit: contain;
+            flex-shrink: 0;
+            /* Prevent logo from shrinking */
         }
 
         .nav-links {
             display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-            margin-top: 10px;
+            gap: 10px;
+            flex-wrap: nowrap;
+            /* Keep links on one line */
+            justify-content: flex-end;
+            align-items: center;
+            overflow-x: auto;
+            /* Allow links to scroll if needed */
+            padding-bottom: 2px;
         }
 
         .nav-links a {
             color: #000;
             font-weight: 700;
             font-size: 0.65rem;
+            /* Smaller text for mobile */
             text-transform: uppercase;
-            padding: 6px 10px;
+            padding: 8px 12px;
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.5);
             text-align: center;
+            white-space: nowrap;
+            /* Prevent text wrap inside buttons */
+            flex-shrink: 0;
+            /* Prevent buttons from crushing */
         }
 
         @media (min-width: 900px) {
             header {
-                flex-wrap: nowrap;
+                overflow-x: visible;
+                padding: 1rem 5%;
+            }
+
+            header img {
+                height: 65px;
+                /* Original size on desktop */
             }
 
             .nav-links {
-                width: auto;
-                margin-top: 0;
-                justify-content: flex-end;
+                overflow-x: visible;
                 gap: 15px;
+                padding-bottom: 0;
             }
 
             .nav-links a {
