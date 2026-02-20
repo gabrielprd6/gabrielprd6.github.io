@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Croisia - L’Écosystème Intelligent qui Pilote votre Restaurant.">
+    <title>Croisia | Agence d'Automatisation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #d1d5db;
+            /* Softer main grey */
+            --bg-alt: #b1b5be;
+            /* Slightly darker alt grey for better contrast */
+            --color-black: #000;
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-soft: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: #111;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #000;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        /* --- Animations Flags & Re-trigger --- */
+        .reveal {
+            opacity: 0;
+            transition: all 0.6s ease-out;
+            /* Faster, snappier visibility */
+        }
+
+        .reveal-up {
+            transform: translateY(80px);
+        }
+
+        .reveal-left {
+            transform: translateX(-100px);
+        }
+
+        /* Increased distance */
+        .reveal-right {
+            transform: translateX(100px);
+        }
+
+        /* Increased distance */
+
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* --- Header --- */
+        header {
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: #e2e8f0;
+            /* Distinct light grey, different from theme */
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        header img {
+            height: 65px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 900px) {
+            .nav-links {
+                display: flex;
+                gap: 15px;
+            }
+
+            .nav-links a {
+                color: #000;
+                font-weight: 700;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                padding: 10px 20px;
+                border-radius: 8px;
+            }
+
+            .nav-links a:hover {
+                background: #fff;
+                box-shadow: var(--shadow-card);
+                transform: translateY(-4px);
+            }
+        }
+
+        /* --- Hero --- */
+        .hero {
+            min-height: 90vh;
+            padding-top: 15vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('unnamedond_restaurant.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            /* Switch to white text for better visibility on dark overlay */
+        }
+
+        .hero h1 {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            max-width: 1000px;
+            color: #fff;
+        }
+
+        .category-label {
+            background: #000;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        /* --- Section Containers --- */
+        .section-header {
+            text-align: center;
+            padding: 8rem 1rem 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-block {
+            padding: 5rem 5%;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            align-items: center;
+            overflow: hidden;
+            /* Prevent horizontal scroll triggers */
+        }
+
+        .feature-block.bg-alt {
+            background: linear-gradient(to bottom,
+                    var(--bg-body) 0%,
+                    var(--bg-alt) 10%,
+                    var(--bg-alt) 90%,
+                    var(--bg-body) 100%);
+            position: relative;
+        }
+
+        /* Smoothing the hard edges of sections */
+        section,
+        .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 900px) {
+            .feature-block {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .feature-block.reverse {
+                flex-direction: row-reverse;
+            }
+
+            .feature-text {
+                width: 42%;
+            }
+
+            .feature-visual {
+                width: 60%;
+                overflow-x: auto;
+            }
+        }
+
+        /* --- Mockups --- */
+        .mockup-window {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.5s ease;
+        }
+
+        .feature-visual:hover .mockup-window {
+            transform: translateY(-10px);
+        }
+
+        /* UI Elements */
+        .feature-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-list li {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #fff;
+            border-left: 3px solid #000;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .dashboard-ui {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .table-box {
+            height: 50px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .table-box.full {
+            background: #000;
+            color: #fff;
+        }
+
+        .chat-bubble {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 80%;
+        }
+
+        .chat-bubble.bot {
+            background: #000;
+            color: #fff;
+        }
+
+        .chat-bubble.client {
+            background: #fff;
+            border: 1px solid #ddd;
+            align-self: flex-end;
+        }
+
+        /* --- A Propos & Footer (White) --- */
+        #apropos {
+            padding: 8rem 5%;
+            text-align: center;
+            background: linear-gradient(to bottom,
+                    var(--bg-body) 0%,
+                    var(--bg-alt) 20%,
+                    var(--bg-alt) 100%);
+            border-top: none;
+        }
+
+        #apropos h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-link {
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-bottom: 2px solid #000;
+        }
+
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            background: var(--bg-alt);
+            color: #666;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- New Dashboard Styles --- */
+        .dashboard-mockup {
+            background: #f8fafc;
+            border-radius: 12px;
+            display: flex;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            height: 480px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+            min-width: 700px;
+        }
+
+        .db-sidebar {
+            width: 170px;
+            flex-shrink: 0;
+            background: #fff;
+            border-right: 1px solid #e2e8f0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            font-size: 0.7rem;
+            color: #64748b;
+            overflow-y: auto;
+        }
+
+        .db-logo {
+            font-weight: 900;
+            color: #000;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+        }
+
+        .db-logo img {
+            height: 22px;
+            width: auto;
+        }
+
+        .db-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .db-nav-item.active {
+            background: #eff6ff;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .db-nav-item:hover:not(.active) {
+            background: #f1f5f9;
+        }
+
+        .db-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            min-width: 500px;
+            /* Prevent horizontal crushing on desktop */
+        }
+
+        .db-header {
+            margin-bottom: 20px;
+        }
+
+        .db-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .db-subtitle {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .db-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .db-card {
+            background: #fff;
+            padding: 12px 10px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            min-width: 0;
+            /* Allow shrinking */
+        }
+
+        .db-card-label {
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .db-card-value {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #0f172a;
+            white-space: nowrap;
+            letter-spacing: -0.5px;
+        }
+
+        .db-chart-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .db-section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .db-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 140px;
+            padding-top: 10px;
+        }
+
+        .db-bar-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .db-bar {
+            width: 30px;
+            background: #2563eb;
+            border-radius: 4px 4px 0 0;
+            transition: height 1s ease-out;
+        }
+
+        .db-bar-label {
+            font-size: 0.6rem;
+            color: #94a3b8;
+        }
+
+        .db-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+        }
+
+        .db-table th {
+            text-align: left;
+            padding: 10px;
+            color: #94a3b8;
+            font-weight: 600;
+            border-bottom: 1px solid #f1f5f9;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+        }
+
+        .db-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #475569;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-mockup {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .db-sidebar {
+                width: 100%;
+                flex-direction: row;
+                overflow-x: auto;
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .db-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" style="display: flex; align-items: center;">
+            <img src="logo_new.png" alt="Croisia" class="reveal reveal-up">
+        </a>
+        <nav class="nav-links reveal reveal-up" style="transition-delay: 0.1s;">
+            <a href="#restaurateur">CÔTÉ RESTAURATEUR</a>
+            <a href="#clients">CÔTÉ CLIENT</a>
+            <a href="#apropos">A PROPOS DE NOUS</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="reveal reveal-up">
+            <h1>Propulsez votre restaurant<br>grâce à la gestion automatique</h1>
+            <p>L'écosystème qui pilote votre établissement</p>
+        </div>
+    </section>
+
+    <!-- Restaurateur -->
+    <div id="restaurateur" class="section-header reveal reveal-up">
+        <h2>INTERFACE DE GESTION</h2>
+        <p>Supervisez tout votre établissement</p>
+    </div>
+
+    <!-- Feature 1: Left Text, Right Visual -->
+    <section class="feature-block bg-alt">
+        <div class="feature-text reveal reveal-left">
+            <h3>INTERFACE SUR-MESURE</h3>
+            <p>Personnalisez chaque aspect de votre établissement pour une gestion optimisée :</p>
+            <ul class="feature-list">
+                <li>Configuration de salle</li>
+                <li>Menu disponible</li>
+                <li>Horaires</li>
+                <li>Fermetures exceptionnelles</li>
+            </ul>
+        </div>
+        <div class="feature-visual reveal reveal-right">
+            <div class="mockup-window" style="padding: 0; overflow: hidden; border: 1px solid rgba(0,0,0,0.1);">
+                <img src="screnn app3.jpg" alt="Interface de gestion Croisia"
+                    style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: Right Text, Left Visual (Reversed) -->
+    <section class="feature-block reverse">
+        <div class="feature-text reveal reveal-right">
+            <h3>COMMANDES • STOCKS • FINANCES</h3>
+            <p>Obtenez une vision précise et automatisée de votre rentabilité :</p>
+            <ul class="feature-list">
+                <li>Analyse</li>
+                <li>Performance</li>
+            </ul>
+        </div>
+        <div class="feature-visual reveal reveal-left">
+            <div class="dashboard-mockup" style="height:400px;">
+                <div class="db-content" style="padding-top:0;">
+                    <div class="db-header" style="position:sticky; top:0; background:#f8fafc; padding:20px 0 10px;">
+                        <div class="db-section-title">DERNIÈRES TRANSACTIONS</div>
+                    </div>
+                    <table class="db-table">
+                        <thead>
+                            <tr>
+                                <th>HEURE</th>
+                                <th>TABLE</th>
+                                <th>ARTICLES</th>
+                                <th>TOTAL</th>
+                                <th>PAIEMENT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>13:15</td>
+                                <td>T4</td>
+                                <td>1</td>
+                                <td>32,00 €</td>
+                                <td>Espèces</td>
+                            </tr>
+                            <tr>
+                                <td>12:30</td>
+                                <td>T1</td>
+                                <td>1</td>
+                                <td>12,00 €</td>
+                                <td>CB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="clients" class="section-header reveal reveal-up">
+        <span class="category-label" style="background:#fff; color:#000; border:1px solid #000;">EXPÉRIENCE</span>
+        <h2>NE PERDEZ PLUS AUCUN CLIENT</h2>
+    </div>
+
+    <!-- Feature 3: Left Text, Right Visual -->
+    <section class="feature-block bg-alt">
+        <div class="feature-text reveal reveal-left">
+            <h3>IA DE RÉCEPTION 24/7</h3>
+            <p>Ne perdez plus jamais un prospect. Votre IA répond instantanément jour et nuit, évitant que vos clients
+                n'aillent chercher une table chez vos concurrents quand vous êtes débordé.</p>
+            <ul class="feature-list">
+                <li>Réponse immédiate 24/7</li>
+                <li>Zéro client perdu au profit de la concurrence</li>
+            </ul>
+        </div>
+        <div class="feature-visual reveal reveal-right">
+            <div class="mockup-window" style="background:#f8fafc; padding:20px;">
+                <div
+                    style="font-size:0.7rem; color:#94a3b8; margin-bottom:15px; text-transform:uppercase; font-weight:700;">
+                    IA Disponible immédiatement</div>
+                <div class="chat-bubble bot" style="background:#2563eb; font-size:0.9rem;">Bonjour Restaurant Croisia !
+                    Je prends votre réservation immédiatement.</div>
+                <div class="chat-bubble client"
+                    style="font-size:0.9rem; border:none; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">Génial, personne ne
+                    décrochait ailleurs !</div>
+                <div class="chat-bubble bot" style="background:#2563eb; font-size:0.9rem;">C'est l'avantage Croisia.
+                    Table réservée !</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 4: Right Text, Left Visual (Reversed) -->
+    <section class="feature-block reverse">
+        <div class="feature-text reveal reveal-right">
+            <h3>SERVICE SANS ATTENTE</h3>
+            <p>Optimisez chaque rotation. En envoyant le menu à l'avance, vos clients sont préparés, attendent moins et
+                vos tables ne restent jamais vides. Une validation par mail à J-1 évite toute déconvenue.</p>
+            <ul class="feature-list">
+                <li>Envoi du menu digitalisé</li>
+                <li>Validation automatique par mail à J-1</li>
+            </ul>
+        </div>
+        <div class="feature-visual reveal reveal-left">
+            <div class="mockup-window"
+                style="background:#fff; padding:30px; display:flex; flex-direction:column; align-items:center;">
+                <div style="width:100%; height:10px; background:#f1f5f9; border-radius:10px; margin-bottom:20px;"></div>
+                <i class="fa-regular fa-envelope" style="font-size:3.5rem; color:#2563eb; margin-bottom:20px;"></i>
+                <div style="font-weight:700; margin-bottom:5px;">Validation J-1 envoyée</div>
+                <div style="font-size:0.8rem; color:#64748b;">Prêt pour un service fluide</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apropos" class="reveal reveal-up">
+        <h2>A PROPOS DE NOUS</h2>
+        <p style="max-width:700px; margin:0 auto 3rem; color:#666;">Nous sommes une équipe d'étudiants ingénieurs de
+            l'École Nationale de l'Aviation Civile (ENAC). Notre formation nous apprend à gérer des systèmes complexes
+            et à optimiser des flux pour une efficacité maximale. Aujourd'hui, nous transposons cette exigence de
+            précision dans votre univers : la restauration.</p>
+        <a href="mailto:contact@croisia.me" class="contact-link">contact@croisia.me</a>
+    </section>
+
+    <footer>
+        &copy; 2026 Croisia Agency.
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    // Remove active to allow re-triggering when scrolling back
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, {
+            threshold: 0.15 // Trigger when 15% visible
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Animate dashboard bars on reveal
+        const dbObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.db-bar').forEach(bar => {
+                        const height = bar.style.height;
+                        bar.style.height = '0';
+                        setTimeout(() => {
+                            bar.style.height = height;
+                        }, 100);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.db-chart-section').forEach(el => dbObserver.observe(el));
+    </script>
+</body>
+
+</html>
