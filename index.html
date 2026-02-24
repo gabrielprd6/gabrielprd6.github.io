@@ -88,10 +88,13 @@
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             flex-wrap: nowrap;
-            /* Force on one line */
-            overflow-x: auto;
-            /* allow scroll if desperately tight */
-            gap: 20px;
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
         }
 
         header img {
@@ -107,12 +110,18 @@
             gap: 10px;
             flex-wrap: nowrap;
             /* Keep links on one line */
-            justify-content: flex-end;
             align-items: center;
             overflow-x: auto;
             /* Allow links to scroll if needed */
             padding-bottom: 2px;
-            flex-shrink: 0;
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none;
         }
 
         .nav-links a {
@@ -133,7 +142,6 @@
 
         @media (min-width: 900px) {
             header {
-                overflow-x: visible;
                 padding: 1rem 5%;
             }
 
@@ -146,6 +154,8 @@
                 overflow-x: visible;
                 gap: 15px;
                 padding-bottom: 0;
+                justify-content: flex-end;
+                flex-grow: 1;
             }
 
             .nav-links a {
@@ -635,7 +645,7 @@
 <body>
 
     <header>
-        <a href="#" style="display: flex; align-items: center;">
+        <a href="#" class="logo-container">
             <img src="logo_new.png" alt="Croisia">
         </a>
         <nav class="nav-links">
