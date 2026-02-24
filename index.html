@@ -76,7 +76,8 @@
 
         /* --- Header --- */
         header {
-            padding: 1rem 5%;
+            padding: 1rem 3%;
+            /* reduced padding on mobile */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -88,7 +89,8 @@
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             flex-wrap: nowrap;
-            gap: 15px;
+            gap: 5px;
+            /* reduced gap on mobile */
         }
 
         .logo-container {
@@ -107,7 +109,8 @@
 
         .nav-links {
             display: flex;
-            gap: 10px;
+            gap: 4px;
+            /* reduced gap on mobile */
             flex-wrap: nowrap;
             /* Keep links on one line */
             align-items: center;
@@ -127,10 +130,11 @@
         .nav-links a {
             color: #000;
             font-weight: 700;
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             /* Smaller text for mobile */
             text-transform: uppercase;
-            padding: 8px 12px;
+            padding: 6px 8px;
+            /* reduced padding on mobile */
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.5);
             text-align: center;
@@ -143,6 +147,7 @@
         @media (min-width: 900px) {
             header {
                 padding: 1rem 5%;
+                gap: 15px;
             }
 
             header img {
