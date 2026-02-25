@@ -1,0 +1,19 @@
+ARTICLE 1 : L'ÉDITEUR
+Le Site est édité à titre personnel dans le cadre d'un projet étudiant (École Nationale de l'Aviation Civile - ENAC) en cours de création d'entreprise.
+Éditeur / Porteur de projet : Gabriel PRAUD
+Adresse : 7 Avenue Edouard Belin 31400 Toulouse
+Adresse e-mail : contact@croisia.me
+(Note légale : En tant que particulier, la loi vous autorise théoriquement à conserver votre anonymat en ligne à condition d'avoir transmis vos coordonnées exactes à votre hébergeur. Cependant, dans le cadre d'une prospection B2B auprès de restaurateurs, afficher une identité claire est fortement recommandé pour instaurer la confiance).
+ARTICLE 2 : L'HÉBERGEUR
+Le Site est hébergé par la société : Github
+ARTICLE 3 : ACCÈS AU SITE
+Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découler d’une nécessité de maintenance. En cas de modification, interruption ou suspension du Site, l'Éditeur ne saurait être tenu responsable.
+ARTICLE 4 : COLLECTE DES DONNÉES ET RGPD
+Le Site assure à l'utilisateur une collecte et un traitement d'informations personnelles dans le respect de la vie privée conformément à la loi n°78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés et au Règlement Général sur la Protection des Données (RGPD).
+Pour en savoir plus sur la gestion de vos données personnelles (notamment les informations recueillies via nos formulaires de contact) et exercer vos droits de modification ou de suppression, l'utilisateur est invité à consulter notre Politique de Confidentialité accessible ici : [Lien vers la page Politique de Confidentialité].
+ARTICLE 5 : PROPRIÉTÉ INTELLECTUELLE
+Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du Site (textes, logos, images, code), sans autorisation de l’Éditeur est prohibée et pourra entraîner des actions et poursuites judiciaires telles que notamment prévues par le Code de la propriété intellectuelle et le Code civil.
+ARTICLE 6 : COOKIES
+L’Utilisateur est informé que lors de ses visites sur le Site, un ou plusieurs cookies peuvent s’installer automatiquement sur son logiciel de navigation. Un cookie est un fichier de petite taille qui ne permet pas d’identifier l’Utilisateur mais sert à enregistrer des informations relatives à la navigation de celui-ci sur le Site. L’Utilisateur pourra désactiver ces cookies par l’intermédiaire des paramètres de son navigateur ou via le bandeau de consentement présent sur le site.
+ARTICLE 7 : DROIT APPLICABLE
+Les présentes Mentions Légales sont régies par le droit français. En cas de différend et à défaut d’accord amiable, le litige sera porté devant les tribunaux français conformément aux règles de compétence en vigueur.

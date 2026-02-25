@@ -1,0 +1,23 @@
+﻿POLITIQUE DE CONFIDENTIALIT╔ DU SITE CROISIA
+Date de derniÞre mise Ó jour : 25 fÚvrier 2026
+La prÚsente Politique de ConfidentialitÚ a pour but de vous informer sur la maniÞre dont nous traitons vos donnÚes personnelles lorsque vous naviguez sur le site vitrine https://croisia.me (ci-aprÞs le "Site") et lorsque vous nous contactez.
+Cette politique concerne uniquement l'utilisation de ce Site web. L'utilisation de notre future solution logicielle par les restaurateurs fera l'objet de conditions spÚcifiques et d'un accord de traitement des donnÚes (DPA) distinct.
+1. RESPONSABLE DE TRAITEMENT
+Le Site est ÚditÚ dans le cadre d'un projet Útudiant (╔cole Nationale de l'Aviation Civile - ENAC) en cours de crÚation d'entreprise.
+Le responsable du traitement des donnÚes liÚes Ó ce Site est Praud Gabriel, porteur du projet Croisia. Pour toute question, vous pouvez nous contacter directement par e-mail : contact@croisia.me.
+2. QUELLES DONN╔ES COLLECTONS-NOUS ?
+╔tant donnÚ que notre Site ne comporte pas de formulaire de contact ou de crÚation de compte, la collecte de donnÚes est rÚduite au strict minimum :
+DonnÚes que vous nous transmettez volontairement : Lorsque vous nous Úcrivez directement Ó l'adresse contact@croisia.me, nous collectons votre adresse e-mail, votre nom (s'il est indiquÚ), ainsi que le contenu de votre message.
+DonnÚes collectÚes automatiquement (techniques) : Lors de votre navigation, notre hÚbergeur recueille des donnÚes techniques nÚcessaires Ó la sÚcuritÚ et au bon fonctionnement du Site (adresse IP, type de navigateur, pages consultÚes, logs de connexion).
+3. POURQUOI UTILISONS-NOUS VOS DONN╔ES ? (FINALIT╔S)
+Vos donnÚes sont traitÚes uniquement pour les raisons suivantes :
+Vous rÚpondre, Úchanger avec vous sur vos besoins et vous prÚsenter notre solution (prospection commerciale B2B).
+Assurer la sÚcuritÚ du Site et prÚvenir d'Úventuelles attaques informatiques (via les logs de notre hÚbergeur).
+4. QUI A ACC╚S └ VOS DONN╔ES ?
+Vos donnÚes sont strictement confidentielles et ne sont jamais vendues ou cÚdÚes Ó des tiers. Elles sont uniquement accessibles :
+└ l'Úquipe du projet Croisia pour traiter vos demandes.
+└ notre fournisseur de messagerie Úlectronique (qui hÚberge notre bo¯te contact@croisia.me).
+└ l'hÚbergeur de notre Site web [NOM DE L'H╔BERGEUR, ex: Vercel, OVH...], qui stocke les donnÚes techniques de navigation.
+5. DUR╔E DE CONSERVATION
+Nous ne conservons vos donnÚes que le temps nÚcessaire :
+Correspondances par e-mail : ConservÚes au maximum 3 ans Ó compter de notre dernier contact avec vous (durÚe lÚgale recommandÚe pour la prospection B2B).
