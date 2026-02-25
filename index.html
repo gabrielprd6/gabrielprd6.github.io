@@ -381,11 +381,34 @@
         }
 
         footer {
-            padding: 2rem 0;
+            padding: 2rem 5%;
             text-align: center;
             background: var(--bg-alt);
-            color: #666;
+            color: #444;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #444;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: #000;
         }
 
         /* --- New Dashboard Styles --- */
@@ -575,6 +598,89 @@
             color: #475569;
         }
 
+        /* --- Contact Form --- */
+        #contact {
+            padding: 5rem 5%;
+            background: #fff;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #contact p {
+            color: #64748b;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .form-control {
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #2563eb;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
         @media (max-width: 900px) {
             .hero {
                 padding-top: 25vh;
@@ -618,6 +724,14 @@
 
             .contact-link {
                 font-size: 1.2rem;
+            }
+
+            #contact {
+                padding: 4rem 5%;
+            }
+
+            #contact h2 {
+                font-size: 2rem;
             }
 
             .dashboard-mockup {
@@ -795,6 +909,37 @@
         </div>
     </section>
 
+    <section id="contact" class="reveal reveal-up">
+        <h2>CONTACTEZ-NOUS</h2>
+        <p>Intéressé(e) par notre solution ? Remplissez ce formulaire et nous reviendrons vers vous dans les plus brefs
+            délais.</p>
+        <form action="https://formsubmit.co/contact@croisia.me" method="POST" class="contact-form">
+            <!-- Hidden Fields for FormSubmit -->
+            <input type="hidden" name="_subject" value="Nouveau message depuis le site Croisia">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+
+            <div class="form-group">
+                <label for="name">Nom / Entreprise</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Adresse Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="votre.email@exemple.com"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="form-control"
+                    placeholder="Dites-nous en plus sur vos besoins..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Envoyer</button>
+        </form>
+    </section>
+
     <section id="apropos" class="reveal reveal-up">
         <h2>A PROPOS DE NOUS</h2>
         <p style="max-width:700px; margin:0 auto 3rem; color:#666;">Nous sommes une équipe d'étudiants ingénieurs de
@@ -805,7 +950,11 @@
     </section>
 
     <footer>
-        &copy; 2026 Croisia Agency.
+        <div>&copy; 2026 Croisia Agency. Tous droits réservés.</div>
+        <div class="footer-links">
+            <a href="MENTIONS%20L%C3%89GALES%20FINAL.docx" target="_blank">Mentions Légales</a>
+            <a href="politique_confidentialite.html" target="_blank">Politique de Confidentialité</a>
+        </div>
     </footer>
 
     <script>
